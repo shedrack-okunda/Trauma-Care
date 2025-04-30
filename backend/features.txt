@@ -1,0 +1,28 @@
+ Backend Planning (Node + Express + MongoDB + TypeScript)
+We'll structure this into the following sections:
+
+Core Features & API Endpoints
+
+Folder Structure
+
+Schemas (MongoDB via Mongoose)
+
+Controllers
+
+Routes
+
+Authentication (JWT)
+
+Sample .env and Middleware
+
+✅ 1. Core Features & API Endpoints
+
+Feature	Endpoint	Method	Auth
+User signup/login	/api/auth/signup & /login	POST	❌
+Get/update profile	/api/users/:id	GET / PUT	✅
+Mood tracking	/api/moods	POST / GET	✅
+Symptom check records	/api/symptoms	POST / GET	✅
+Mentor booking	/api/mentors/book	POST	✅
+Medication reminders	/api/meds	POST / GET / DELETE	✅
+Resources (view)	/api/resources	GET	❌
+Emergency contact	/api/emergency	GET / POST	✅
