@@ -1,0 +1,407 @@
+📱 1. Landing Page Layout
+Top Section (Header):
+
+App Name: Tulia (centered, soft font)
+
+Logo/Icon: Calm, round shape (like a leaf, heart, or dove)
+
+Middle Section (Main Message):
+
+Welcome text (centered):
+“Heal, grow, and thrive — at your own pace.”
+(Soft font, slightly larger than body text)
+
+CTA Buttons (Stacked):
+
+Button 1: 🩺 Check Symptoms
+
+Button 2: 📊 Track Recovery
+
+Button 3: 👥 Find a Mentor
+(Use full-width buttons with rounded corners, Material UI style)
+
+Optional Illustration:
+
+Light background (soft leaves, sunrise, or abstract calm shapes)
+
+Bottom Navigation Bar:
+
+🏠 Home | 📋 Dashboard | 🚨 Help
+(Fixed, minimal style with icon labels)
+
+📱 2. User Dashboard Layout
+Header:
+
+User avatar or greeting: “Hi, [User Name]”
+
+Today’s date and small encouraging quote
+
+Main Widgets:
+
+Mood Tracker Preview
+→ Small chart with recent mood entries (e.g., 😐 🙂 😢)
+
+Medication Reminder Card
+→ “Next medication at 8:00 AM”
+
+Quick Links
+→ View Symptoms | Journal Entry | Book Mentor
+
+Bottom Navigation: Same as landing
+
+📱 3. Symptom Checker (AI-style Chat)
+Top Section:
+
+Title: “Check Your Symptoms”
+
+Subtext: “Answer a few questions to understand your current state.”
+
+Chat-style Interface:
+
+Question appears: “Have you experienced nightmares recently?”
+
+User responds in chat bubble
+
+Progress bar or indicator (e.g., 2 of 8)
+
+End Result:
+
+A brief report: “You may be experiencing mild PTSD symptoms. Would you like to talk to a mentor?”
+
+CTA Options:
+→ Talk to Mentor | View Resources
+
+📱 4. Mentor Booking Page
+Header: “Find a Trauma Mentor”
+
+Mentor List (Card Style):
+
+Photo | Name | Specialty (e.g., PTSD, grief)
+
+Availability badge: “Available Now” / “Available Tomorrow”
+
+Book Button → opens time slots modal
+
+Optional Filters: Specialty | Language | Availability
+
+📱 5. Medication Reminder Page
+Section:
+
+Add Medication (Form: name, dose, time)
+
+View Upcoming Reminders
+
+Edit/Delete options per reminder
+
+Visual aid: Small pill icon, calendar pop-up
+
+📱 6. Resource Hub
+Search Bar
+→ Placeholder: “Search articles, videos, podcasts…”
+
+Categories:
+
+Trauma Recovery
+
+Self-Care
+
+Grief & Loss
+
+PTSD
+
+Cards for Resources:
+
+Title | Description | Type (e.g., Article, Video) | Bookmark icon
+
+📱 7. Emergency Help Page
+Headline: “Need Help Now?”
+
+Big Buttons:
+
+📞 Call 1195 (Suicide Prevention)
+
+📱 Call Red Cross Emergency
+
+📋 View Nearby Clinics
+
+Secondary: Add your emergency contacts
+
+ 2. Dashboard Screen – “Your Wellness Hub”
+Header:
+
+Profile picture + greeting: “Hi, Amina 👋”
+
+Subheading: “Here’s your wellness snapshot”
+
+Main Sections (Scroll layout):
+
+Mood Tracker Summary
+
+Emoji icons showing last 3 mood entries: 🙂 😔 😐
+
+Small line chart underneath (optional)
+
+Today’s Medication Reminder
+
+Card showing: “Take Sertraline - 8:00 AM”
+
+Option to mark as Taken or Skip
+
+Quick Actions (3 icons)
+
+🩺 Check Symptoms
+
+📘 View Journal
+
+👥 Book Mentor
+
+Latest Resources Section
+
+Scrollable horizontal cards: Article / Video / Quote
+
+Bottom Nav Bar:
+🏠 Home | 📋 Dashboard | 🚨 Help (highlighted here)
+
+📱 3. Symptom Checker (Chat-like Experience)
+Header:
+
+Title: “Let’s check in with you…”
+
+Body:
+
+A chatbot-style Q&A sequence:
+
+App asks: “Have you had trouble sleeping recently?”
+
+User responds: via yes/no or a slider (1–5 scale)
+
+Repeat for 6–10 questions
+
+Progress Bar:
+
+Small progress indicator (e.g., Step 3 of 10)
+
+Final Output:
+
+Summary: “You may be showing signs of acute stress.”
+
+Suggestions:
+
+👥 Book a mentor
+
+📘 View coping techniques
+
+🛑 Emergency help if needed
+
+📱 4. Mentor Booking Screen
+Header: “Book a Mentor Session”
+
+Search Filters:
+
+🔍 By specialty (e.g., PTSD, anxiety)
+
+🕒 By availability (now/tomorrow)
+
+Mentor Cards (List format):
+
+Mentor Image + Name
+
+Specialty (e.g., “Trauma & Grief”)
+
+Status: Available Today
+
+📅 Book Session button
+
+Session Booking Modal:
+
+Calendar-style picker
+
+Select time
+
+Confirmation screen
+
+📱 5. Medication Reminder Screen
+Header: “Manage Medications”
+
+Add Reminder Form:
+
+Input fields: Medication name, dosage, time, frequency
+
+✅ Save Reminder
+
+List of Active Reminders:
+
+Pill Icon | Name | Time | Daily
+
+Edit ✏️ | Delete ❌
+
+Visual Aid (Optional):
+
+Calendar or timeline preview
+
+📱 6. Resource Hub
+Header: “Explore Wellness Tools”
+
+Search Bar:
+
+“Search videos, articles, podcasts…”
+
+Category Tabs:
+
+🧠 Trauma Recovery
+
+💬 Coping Tools
+
+💊 Medication Info
+
+📝 Journaling Prompts
+
+Resource Cards (List view):
+
+Title | Type | Short Description
+
+Bookmark icon ❤️
+
+📱 7. Emergency Help Screen
+Header: “Do You Need Help Right Now?”
+
+Big, Tappable Buttons:
+
+📞 Call 1195 (Kenya Suicide Prevention)
+
+🚨 Red Cross Hotline
+
+🗺️ View Nearby Facilities
+
+Additional:
+
+“Add your emergency contact”
+
+“See safety plan steps”
+
+🔄 Core User Flows for Tulia
+1️⃣ User Onboarding Flow
+Goal: Register or log in to the app securely.
+
+Steps:
+
+User opens app → sees Welcome screen
+
+Taps “Get Started”
+
+Chooses: Sign Up or Log In
+
+Email / phone number
+
+Password (optional: 2FA)
+
+On success → redirected to Dashboard
+
+2️⃣ Symptom Checker Flow
+Goal: Help users assess their mental state.
+
+Steps:
+
+User taps “Check Symptoms” from landing or dashboard
+
+Guided Q&A begins (e.g., 6–10 questions)
+
+Questions answered using yes/no, slider, or multiple choice
+
+App analyzes input (basic logic or AI model)
+
+Displays:
+
+Assessment summary
+
+Suggested resources or mentor booking
+
+CTA: “Book a Mentor”, “Learn More”, “Return to Dashboard”
+
+3️⃣ Mood & Recovery Tracking Flow
+Goal: Track mood, progress, and medication.
+
+Steps:
+
+User logs in → Dashboard shows mood + recovery card
+
+Taps “Update Mood”
+
+Emoji or scale entry
+
+Taps “View Progress” (charts or timeline)
+
+Adds or views medication reminders
+
+Alerts user at scheduled time
+
+Logs when meds are taken
+
+4️⃣ Mentor Booking Flow
+Goal: Let users book a session with a trauma mentor.
+
+Steps:
+
+User taps “Find a Mentor”
+
+Sees list of available mentors
+
+Filters by specialty, availability
+
+Selects a mentor → taps “Book”
+
+Chooses date & time → confirms
+
+Gets notification reminder before session
+
+5️⃣ Content Exploration Flow (Resource Hub)
+Goal: Discover mental health content.
+
+Steps:
+
+User taps “Resources” from menu or suggestion
+
+Can filter by category or search term
+
+Taps on a card (article/video)
+
+Reads/watches/plays content
+
+Can bookmark, share, or comment (if allowed)
+
+6️⃣ Emergency Help Flow
+Goal: Provide fast access to help during a crisis.
+
+Steps:
+
+User taps “Help” tab or panic button
+
+Shown:
+
+Call helpline (e.g., 1195)
+
+Access emergency contact
+
+Locate nearby facility
+
+Can also view safety plan, quick tips
+
+System logs crisis action (for follow-up if needed)
+
+7️⃣ Profile & Preferences Flow
+Goal: User manages their app data and settings.
+
+Steps:
+
+User taps profile avatar
+
+Can edit:
+
+Name, email, password
+
+Preferred language or theme (dark/light)
+
+Notification preferences
+
+Option to delete account or export data
+
