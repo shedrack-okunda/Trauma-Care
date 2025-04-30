@@ -1,0 +1,154 @@
+The Problem You're Addressing in Kenya
+Mental health challenges are a growing concern in Kenya, with several factors contributing to the issue:
+
+High Prevalence of Mental Health Conditions: According to the Kenyan National Commission of Human Rights (KNCHR), between 25% and 40% of outpatients and inpatients suffer from mental health conditions, including depression, substance abuse, stress, and anxiety disorders. ​
+Citizen
++1
+HapaKenya
++1
+
+Limited Access to Mental Health Services: Approximately 75% of Kenyans lack access to mental health care services, with youth being particularly at risk. ​
+Mental 360 - Conversations save lives
+
+Stigma and Cultural Barriers: Mental health issues are often stigmatized, leading individuals to avoid seeking help. ​
+Mentalitea
+
+Shortage of Mental Health Professionals: There is a limited number of qualified mental health professionals in the country, making it challenging for individuals to receive timely and adequate care.​
+Stawi Global
+
+Your Trauma App aims to bridge these gaps by providing accessible, affordable, and stigma-free mental health support, aligning with SDG 3: Good Health and Well-Being.
+
+ Similar Mental Health Platforms in Kenya
+Several platforms in Kenya offer mental health services, providing valuable insights and potential collaboration opportunities:
+
+1. Wazi
+Services: Offers anonymous, affordable online therapy sessions with Kenyan therapists via video or audio calls.
+
+Features: No app download required; accessible through web application.
+
+Pricing: Flat rate of Ksh 2,500 per session. ​
+Wazi
+saada.co.ke
++2
+HapaKenya
++2
+Wazi
++2
+
+2. Saada
+Services: Connects users with certified therapists using AI to match based on individual needs and preferences.
+
+Features: Flexible booking for online or in-person sessions; pay-per-session model. ​
+saada.co.ke
+
+3. Chat Care by Kenya Red Cross
+Services: An AI-powered mental health chatbot providing 24/7 support.
+
+Features: Accessible via Telegram, WhatsApp, Facebook Messenger, and web chat; supports English and Swahili languages. ​
+Kenya Red Cross | Always There
+
+4. Ongea
+Services: AI-powered platform offering personalized mental health assessments, self-care tools, and access to professional support.
+
+Features: Provides both virtual and physical therapy sessions; caters to individuals, couples, and organizations. ​
+HapaKenya
++1
+Citizen
++1
+
+5. Mental 360
+Services: Focuses on youth mental health through peer-based approaches and technology.
+
+Features: Offers psychosocial support helplines, school wellness programs, and community wellness centers. ​
+Mental 360 - Conversations save lives
+
+6. Shamiri Health
+Services: Provides affordable therapy sessions for individuals, teens, and couples.
+
+Features: Emphasizes simplicity and accessibility in mental health support. ​
+saada.co.ke
++1
+Shamiri Health
++1
+
+7. Stawi Global
+Services: Offers therapy, mentorship, and community support, particularly for healthcare professionals and caregivers.
+
+Features: Provides online sessions and AI chatbot support. ​
+Stawi Global
++1
+Kenya Red Cross | Always There
++1
+
+ Key Takeaways for Your Trauma App
+Unique Value Proposition: While several platforms offer therapy and support, your app's focus on trauma recovery, symptom tracking, educational resources, and medication reminders can fill a unique niche.​
+
+Integration of Features: Combining AI-driven assessments, personalized self-care plans, and access to professional support can enhance user engagement and outcomes.​
+
+Accessibility and Affordability: Ensuring your app is accessible via multiple platforms (web, mobile) and offers affordable services will be crucial in reaching a broader audience.​
+
+Cultural Sensitivity: Incorporating local languages and culturally relevant content can improve user trust and effectiveness.
+
+
+Project Brief: Trauma App
+
+Project Title: Trauma App
+
+Overview:
+Trauma App is a full-stack mental health application built with the MERN stack (MongoDB, Express, React, Node.js) and TypeScript. It aims to support individuals in their trauma recovery journey by offering educational resources, tracking tools, symptom search, mentor booking, and wellness services including reminders and medicine ordering. The app aligns with the United Nations Sustainable Development Goal (SDG) 3: Good Health and Well-being.
+
+Problem Statement:
+In Kenya and globally, millions of individuals suffer from trauma and mental health conditions, yet access to support remains limited. Issues such as stigma, lack of professionals, and unaffordable services make mental health care inaccessible. Trauma App aims to fill this gap by offering a digital solution that is private, affordable, and easy to use.
+
+Target Users:
+
+Young adults and adults in Kenya and beyond facing trauma-related challenges.
+
+Users in need of mental health resources, mentor support, and medication tracking.
+
+Individuals interested in understanding symptoms and taking control of their healing journey.
+
+Key Features:
+
+Symptom Search & Suggestions
+
+Personalized Resource Library
+
+Track Recovery Progress
+
+Book Online Mentor Sessions
+
+Set Medication Reminders
+
+Order Medication Online
+
+Mental Health Tips & Daily Actions
+
+Push Notifications
+
+Tech Stack:
+
+Frontend: React, TypeScript, Material UI (MUI)
+
+Backend: Node.js, Express, TypeScript
+
+Database: MongoDB
+
+Other: JWT Authentication, REST API, Axios
+
+Unique Value Proposition:
+Unlike other platforms, Trauma App focuses specifically on trauma recovery and combines multiple features (education, mentorship, medication, self-tracking) in one place.
+
+Outcomes Expected:
+
+Improve access to mental health support in underserved communities.
+
+Provide a comprehensive self-care solution for trauma survivors.
+
+Promote awareness and education around trauma and mental health.
+
+SDG Alignment: SDG 3 - Ensure healthy lives and promote well-being for all at all ages.
+
+Project Duration: 4-month BootCamp Capstone
+
+Developer: [Your Name Here]
