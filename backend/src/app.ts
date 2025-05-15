@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import authRoutes from "./routes/authRoutes";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");

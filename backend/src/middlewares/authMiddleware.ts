@@ -15,12 +15,13 @@ export const protect = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   const authHeader = req.headers.authorization;
 
   //   check for token
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Not authorized, token missing." });
+    res.status(401).json({ message: "Not authorized, token missing." });
+    return;
   }
 
   //   Extract the token
@@ -35,13 +36,15 @@ export const protect = async (
 
     // deny access if no user found
     if (!user) {
-      return res.status(401).json({ message: "Not authorized" });
+      res.status(401).json({ message: "Not authorized" });
+      return;
     }
 
-    // attach user to request and move on
+    // attach user to request and
     req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({ message: "Token filed or expired.", error });
+    res.status(401).json({ message: "Token failed or expired.", error });
+    return;
   }
 };
