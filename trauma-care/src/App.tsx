@@ -1,22 +1,33 @@
 import React from "react";
-import { Button, Container, Typography } from "@mui/material";
+import { Mentor } from "./features/mentor/ProfessionalList";
+import { Header } from "./layouts/Header";
+import { MainLayout } from "./layouts/MainLayout";
 
 const App: React.FC = () => {
   return (
-    <Container maxWidth="sm" style={{ marginTop: "2rem" }}>
-      <Typography variant="h4" gutterBottom>
-        Welcome to Trauma Care
-      </Typography>
+    <div className={`min-h-screen bg-blue-50 text-gray-700`}>
+      <Header />
 
-      <Typography variant="body1">
-        This app helps users track and manage their trauma recovery journey.
-      </Typography>
+      <MainLayout />
 
-      <Button variant="contained" color="secondary">
-        Get Started
-      </Button>
-    </Container>
+      <Mentor />
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+      `}</style>
+    </div>
   );
 };
-
 export default App;
