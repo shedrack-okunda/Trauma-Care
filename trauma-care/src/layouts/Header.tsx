@@ -29,9 +29,9 @@ export const Header: React.FC = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box
             sx={{
-              width: 32,
-              height: 32,
-              backgroundColor: "#CCFBF1", // Tailwind's bg-teal-100
+              width: 30,
+              height: 30,
+              backgroundColor: "#CCFBF1",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
@@ -40,7 +40,6 @@ export const Header: React.FC = () => {
             }}
           >
             <SpaIcon sx={{ color: "#0D9488" }} />{" "}
-            {/* Tailwind's text-teal-600 */}
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 500, color: "#0F766E" }}>
             TraumaCare

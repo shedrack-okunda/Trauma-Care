@@ -1,7 +1,8 @@
+import React from "react";
 import { Box, Paper, Typography, Avatar, Grid, Stack } from "@mui/material";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
-export const Progress = () => {
+export const Progress: React.FC = () => {
   const progressData = {
     journalEntries: 12,
     daysActive: 28,
@@ -29,7 +30,7 @@ export const Progress = () => {
 
       <Grid container spacing={2}>
         {metrics.map((metric, index) => (
-          <Grid item xs={6} key={index}>
+          <Grid size={{ xs: 6 }} key={index}>
             <Box
               sx={{
                 backgroundColor: "#F9FAFB",

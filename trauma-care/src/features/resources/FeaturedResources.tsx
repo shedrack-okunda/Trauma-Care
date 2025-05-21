@@ -1,10 +1,11 @@
+import React from "react";
 import { Box, Typography, Button, Chip, Paper, Stack } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 
-export const FeaturedCategories = () => {
+export const FeaturedCategories: React.FC = () => {
   return (
     <Box bgcolor="white" borderRadius={2} p={3} boxShadow={1} mb={3}>
       {/* Header */}

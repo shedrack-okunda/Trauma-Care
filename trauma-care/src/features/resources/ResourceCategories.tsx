@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { ChangeEvent, MouseEvent, useState } from "react";
 import {
   Box,
   Grid,
@@ -14,19 +14,30 @@ import {
   Article as ArticleIcon,
   SelfImprovement as MeditationIcon,
   VideoLibrary as VideoIcon,
-  Group as GroupIcon,
-  MedicalServices as HelpIcon,
-  Spa as SelfCareIcon,
 } from "@mui/icons-material";
 
-export const ResourceCategories = () => {
+interface Resources {
+  key: string;
+  label: string;
+  bgColor: string;
+  iconUrl: string;
+}
+
+export const ResourceCategories: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("home");
 
-  const handleTabChange = (_: any, newValue: string) => {
+  const handleTabChange = (_: ChangeEvent<{}>, newValue: string) => {
     setSelectedTab(newValue);
   };
 
-  const resources = [
+  const handlePaperClick = (
+    _: MouseEvent<HTMLElement>,
+    newValue: string
+  ) => {
+    setSelectedTab(newValue);
+  };
+
+  const resources: Resources[] = [
     {
       key: "articles",
       label: "Articles",
@@ -80,7 +91,7 @@ export const ResourceCategories = () => {
         </Typography>
         <Grid container spacing={2}>
           {resources.map((item) => (
-            <Grid item xs={4} key={item.key}>
+            <Grid size={{ xs: 4 }} key={item.key}>
               <Paper
                 elevation={1}
                 sx={{
@@ -89,7 +100,7 @@ export const ResourceCategories = () => {
                   borderRadius: 3,
                   cursor: "pointer",
                 }}
-                onClick={() => handleTabChange(null, item.key)}
+                onClick={(event) => handlePaperClick(event, item.key)}
               >
                 <Avatar
                   sx={{

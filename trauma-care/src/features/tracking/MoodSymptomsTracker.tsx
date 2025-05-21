@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -14,13 +14,35 @@ import CloseIcon from "@mui/icons-material/Close";
 import MoodIcon from "@mui/icons-material/Mood";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 
-export const MoodSymptoms = () => {
+type Mood =
+  | "Happy"
+  | "Calm"
+  | "Sad"
+  | "Anxious"
+  | "Angry"
+  | "Numb"
+  | "Hopeful"
+  | "Overwhelmed";
+
+type Symptom =
+  | "Insomnia"
+  | "Fatigue"
+  | "Headache"
+  | "Nausea"
+  | "Muscle Tension"
+  | "Racing Thoughts"
+  | "Appetite Changes"
+  | "Panic Attacks"
+  | "Flashbacks"
+  | "Dissociation";
+
+export const MoodSymptoms: React.FC = () => {
   const [showMoodTracker, setShowMoodTracker] = useState(false);
   const [showSymptomLogger, setShowSymptomLogger] = useState(false);
-  const [selectedMood, setSelectedMood] = useState("");
+  const [selectedMood, setSelectedMood] = useState<Mood | "">("");
   const [moodIntensity, setMoodIntensity] = useState(5);
   const [moodNote, setMoodNote] = useState("");
-  const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+  const [selectedSymptoms, setSelectedSymptoms] = useState<Symptom[]>([]);
   const [symptomNote, setSymptomNote] = useState("");
 
   const toggleMoodTracker = () => {
@@ -33,7 +55,7 @@ export const MoodSymptoms = () => {
     if (showMoodTracker) setShowMoodTracker(false);
   };
 
-  const moodOptions = [
+  const moodOptions: Mood[] = [
     "Happy",
     "Calm",
     "Sad",
@@ -43,7 +65,7 @@ export const MoodSymptoms = () => {
     "Hopeful",
     "Overwhelmed",
   ];
-  const symptomOptions = [
+  const symptomOptions: Symptom[] = [
     "Insomnia",
     "Fatigue",
     "Headache",
@@ -56,7 +78,7 @@ export const MoodSymptoms = () => {
     "Dissociation",
   ];
 
-  const handleMoodSelection = (mood) => setSelectedMood(mood);
+  const handleMoodSelection = (mood: Mood) => setSelectedMood(mood);
 
   const saveMoodEntry = () => {
     console.log("Saving mood:", {
@@ -71,10 +93,10 @@ export const MoodSymptoms = () => {
     alert("Mood logged successfully!");
   };
 
-  const handleSymptomSelection = (symptom) => {
+  const handleSymptomSelection = (symptom: Symptom) => {
     setSelectedSymptoms((prev) =>
       prev.includes(symptom)
-        ? prev.filter((s) => s !== symptom)
+        ? prev.filter((s: string) => s !== symptom)
         : [...prev, symptom]
     );
   };
@@ -93,7 +115,7 @@ export const MoodSymptoms = () => {
   return (
     <Box sx={{ p: 2 }}>
       <Grid container spacing={2} mb={2}>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Button
             variant="contained"
             color="primary"
@@ -104,7 +126,7 @@ export const MoodSymptoms = () => {
             Track Mood
           </Button>
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Button
             variant="contained"
             color="secondary"
@@ -132,7 +154,7 @@ export const MoodSymptoms = () => {
 
           <Grid container spacing={1} mt={2}>
             {moodOptions.map((mood) => (
-              <Grid item xs={3} key={mood}>
+              <Grid size={{ xs: 3 }} key={mood}>
                 <Chip
                   label={mood}
                   onClick={() => handleMoodSelection(mood)}
@@ -150,7 +172,7 @@ export const MoodSymptoms = () => {
                 <Typography variant="body2">Intensity (1-10)</Typography>
                 <Slider
                   value={moodIntensity}
-                  onChange={(e, val) => setMoodIntensity(val)}
+                  onChange={(e, val) => setMoodIntensity(val as number)}
                   min={1}
                   max={10}
                 />
@@ -193,7 +215,7 @@ export const MoodSymptoms = () => {
           </Typography>
           <Grid container spacing={1}>
             {symptomOptions.map((symptom) => (
-              <Grid item xs={6} key={symptom}>
+              <Grid size={{ xs: 6 }} key={symptom}>
                 <Chip
                   label={symptom}
                   onClick={() => handleSymptomSelection(symptom)}

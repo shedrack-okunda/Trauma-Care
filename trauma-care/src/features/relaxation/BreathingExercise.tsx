@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -10,14 +10,17 @@ import {
 } from "@mui/material";
 import WindPowerIcon from "@mui/icons-material/WindPower";
 
-export const Breathing = () => {
+type BreathingPhase = "inhale" | "hold" | "exhale";
+
+export const Breathing: React.FC = () => {
   const [showBreathingExercise, setShowBreathingExercise] = useState(false);
-  const [breathingPhase, setBreathingPhase] = useState("inhale");
+  const [breathingPhase, setBreathingPhase] =
+    useState<BreathingPhase>("inhale");
 
   const startBreathingExercise = () => {
     setShowBreathingExercise(true);
 
-    let phase = "inhale";
+    let phase: BreathingPhase = "inhale";
     const breathingInterval = setInterval(() => {
       if (phase === "inhale") {
         setBreathingPhase("hold");
@@ -37,7 +40,7 @@ export const Breathing = () => {
     }, 60000);
   };
 
-  const getPhaseStyles = (phase) => {
+  const getPhaseStyles = (phase: BreathingPhase) => {
     switch (phase) {
       case "inhale":
         return {

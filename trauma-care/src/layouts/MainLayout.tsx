@@ -25,7 +25,7 @@ export const MainLayout: React.FC = () => {
       }}
     >
       {/* Welcome Message */}
-      <Box sx={{ mt: 2, mb: 3 }}>
+      <Box sx={{ mt: 5, mb: 3 }}>
         <Typography
           variant="h5"
           sx={{ fontWeight: 500, color: "#115E59" }} // Tailwind's text-teal-800
