@@ -1,63 +1,114 @@
+import { Box, Typography, Button, Chip, Paper, Stack } from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import HeadphonesIcon from "@mui/icons-material/Headphones";
+import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
+
 export const FeaturedCategories = () => {
   return (
-    <>
-      {/* Featured Resources */}
-      <div className="bg-white rounded-xl p-5 shadow-sm mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-2">
-              <i className="fas fa-star text-purple-600"></i>
-            </div>
-            <h3 className="font-medium">Featured Resources</h3>
-          </div>
-          <button className="text-sm text-teal-600">View All</button>
-        </div>
+    <Box bgcolor="white" borderRadius={2} p={3} boxShadow={1} mb={3}>
+      {/* Header */}
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        mb={2}
+      >
+        <Box display="flex" alignItems="center">
+          <Box
+            width={32}
+            height={32}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="50%"
+            bgcolor="purple.100"
+            mr={1}
+          >
+            <StarIcon sx={{ color: "purple.600", fontSize: 18 }} />
+          </Box>
+          <Typography fontWeight={500}>Featured Resources</Typography>
+        </Box>
+        <Button size="small" sx={{ color: "teal.600", textTransform: "none" }}>
+          View All
+        </Button>
+      </Box>
 
-        <div className="space-y-4">
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-              Article
-            </span>
-            <h4 className="font-medium mt-2">Understanding Trauma Responses</h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Learn about common trauma responses and how to manage them
-              effectively.
-            </p>
-            <div className="flex items-center mt-2 text-sm text-gray-500">
-              <i className="fas fa-clock mr-1"></i>
-              <span>10 min read</span>
-            </div>
-          </div>
+      {/* Resource Cards */}
+      <Stack spacing={2}>
+        {/* Card 1 */}
+        <Paper variant="outlined" sx={{ p: 2, borderRadius: 2 }}>
+          <Chip
+            label="Article"
+            size="small"
+            sx={{
+              bgcolor: "blue.100",
+              color: "blue.700",
+              fontSize: "0.75rem",
+              mb: 1,
+            }}
+          />
+          <Typography fontWeight={500} variant="subtitle1">
+            Understanding Trauma Responses
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mt={0.5}>
+            Learn about common trauma responses and how to manage them
+            effectively.
+          </Typography>
+          <Box display="flex" alignItems="center" mt={1} color="text.secondary">
+            <AccessTimeIcon sx={{ fontSize: 16, mr: 0.5 }} />
+            <Typography variant="caption">10 min read</Typography>
+          </Box>
+        </Paper>
 
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">
-              Meditation
-            </span>
-            <h4 className="font-medium mt-2">Grounding Techniques</h4>
-            <p className="text-sm text-gray-600 mt-1">
-              A guided meditation to help you stay present and centered.
-            </p>
-            <div className="flex items-center mt-2 text-sm text-gray-500">
-              <i className="fas fa-headphones mr-1"></i>
-              <span>15 min</span>
-            </div>
-          </div>
+        {/* Card 2 */}
+        <Paper variant="outlined" sx={{ p: 2, borderRadius: 2 }}>
+          <Chip
+            label="Meditation"
+            size="small"
+            sx={{
+              bgcolor: "indigo.100",
+              color: "indigo.700",
+              fontSize: "0.75rem",
+              mb: 1,
+            }}
+          />
+          <Typography fontWeight={500} variant="subtitle1">
+            Grounding Techniques
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mt={0.5}>
+            A guided meditation to help you stay present and centered.
+          </Typography>
+          <Box display="flex" alignItems="center" mt={1} color="text.secondary">
+            <HeadphonesIcon sx={{ fontSize: 16, mr: 0.5 }} />
+            <Typography variant="caption">15 min</Typography>
+          </Box>
+        </Paper>
 
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <span className="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded-full">
-              Video
-            </span>
-            <h4 className="font-medium mt-2">Healing Through Movement</h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Gentle exercises designed for trauma recovery.
-            </p>
-            <div className="flex items-center mt-2 text-sm text-gray-500">
-              <i className="fas fa-video mr-1"></i>
-              <span>20 min</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+        {/* Card 3 */}
+        <Paper variant="outlined" sx={{ p: 2, borderRadius: 2 }}>
+          <Chip
+            label="Video"
+            size="small"
+            sx={{
+              bgcolor: "rose.100",
+              color: "rose.700",
+              fontSize: "0.75rem",
+              mb: 1,
+            }}
+          />
+          <Typography fontWeight={500} variant="subtitle1">
+            Healing Through Movement
+          </Typography>
+          <Typography variant="body2" color="text.secondary" mt={0.5}>
+            Gentle exercises designed for trauma recovery.
+          </Typography>
+          <Box display="flex" alignItems="center" mt={1} color="text.secondary">
+            <VideoCameraFrontIcon sx={{ fontSize: 16, mr: 0.5 }} />
+            <Typography variant="caption">20 min</Typography>
+          </Box>
+        </Paper>
+      </Stack>
+    </Box>
   );
 };

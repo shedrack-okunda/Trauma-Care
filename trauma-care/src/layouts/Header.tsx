@@ -1,23 +1,76 @@
-export const Header = () => {
+import React from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import SpaIcon from "@mui/icons-material/Spa"; // Similar to fa-seedling
+
+export const Header: React.FC = () => {
   return (
-    <>
-      {/* Header */}
-      <header className="fixed w-full top-0 bg-white shadow-sm z-50 px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mr-2">
-            <i className="fas fa-seedling text-teal-600"></i>
-          </div>
-          <h1 className="font-medium text-teal-700">TraumaCare</h1>
-        </div>
-        <div className="flex items-center">
-          <button className="mr-3 text-gray-500 cursor-pointer">
-            <i className="fas fa-search"></i>
-          </button>
-          <button className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium cursor-pointer !rounded-button">
-            Safe Exit <i className="fas fa-sign-out-alt ml-1"></i>
-          </button>
-        </div>
-      </header>
-    </>
+    <AppBar
+      position="fixed"
+      elevation={1}
+      sx={{
+        backgroundColor: "#ffffff",
+        color: "text.primary",
+        px: 2,
+        py: 1.5,
+        zIndex: (theme) => theme.zIndex.drawer + 1,
+      }}
+    >
+      <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+        {/* Left side: Logo and Title */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              width: 32,
+              height: 32,
+              backgroundColor: "#CCFBF1", // Tailwind's bg-teal-100
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: 1,
+            }}
+          >
+            <SpaIcon sx={{ color: "#0D9488" }} />{" "}
+            {/* Tailwind's text-teal-600 */}
+          </Box>
+          <Typography variant="h6" sx={{ fontWeight: 500, color: "#0F766E" }}>
+            TraumaCare
+          </Typography>
+        </Box>
+
+        {/* Right side: Search + Safe Exit */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton sx={{ color: "#6B7280", mr: 1 }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#FEE2E2", // Tailwind's bg-red-100
+              color: "#B91C1C", // Tailwind's text-red-700
+              fontWeight: 500,
+              fontSize: "0.875rem",
+              borderRadius: 9999, // fully rounded
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "#FCA5A5",
+              },
+            }}
+            endIcon={<ExitToAppIcon />}
+          >
+            Safe Exit
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };

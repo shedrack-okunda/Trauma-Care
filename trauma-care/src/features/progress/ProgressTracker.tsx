@@ -1,5 +1,7 @@
+import { Box, Paper, Typography, Avatar, Grid, Stack } from "@mui/material";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+
 export const Progress = () => {
-  // Progress data (simplified for demo)
   const progressData = {
     journalEntries: 12,
     daysActive: 28,
@@ -7,48 +9,57 @@ export const Progress = () => {
     resourcesExplored: 8,
   };
 
+  const metrics = [
+    { label: "Journal Entries", value: progressData.journalEntries },
+    { label: "Days Active", value: progressData.daysActive },
+    { label: "Exercises Completed", value: progressData.exercisesCompleted },
+    { label: "Resources Explored", value: progressData.resourcesExplored },
+  ];
+
   return (
-    <>
-      {/* Progress Tracker */}
-      <div className="bg-white rounded-xl p-5 shadow-sm mb-6">
-        <div className="flex items-center mb-3">
-          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-2">
-            <i className="fas fa-chart-line text-green-600"></i>
-          </div>
-          <h3 className="font-medium">Your Healing Journey</h3>
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-gray-50 p-3 rounded-lg text-center">
-            <div className="text-xl font-medium text-teal-700">
-              {progressData.journalEntries}
-            </div>
-            <div className="text-xs text-gray-500">Journal Entries</div>
-          </div>
-          <div className="bg-gray-50 p-3 rounded-lg text-center">
-            <div className="text-xl font-medium text-teal-700">
-              {progressData.daysActive}
-            </div>
-            <div className="text-xs text-gray-500">Days Active</div>
-          </div>
-          <div className="bg-gray-50 p-3 rounded-lg text-center">
-            <div className="text-xl font-medium text-teal-700">
-              {progressData.exercisesCompleted}
-            </div>
-            <div className="text-xs text-gray-500">Exercises Completed</div>
-          </div>
-          <div className="bg-gray-50 p-3 rounded-lg text-center">
-            <div className="text-xl font-medium text-teal-700">
-              {progressData.resourcesExplored}
-            </div>
-            <div className="text-xs text-gray-500">Resources Explored</div>
-          </div>
-        </div>
-        <div className="mt-3 text-center">
-          <p className="text-sm text-gray-500">
-            Remember, healing isn't linear. Every step counts.
-          </p>
-        </div>
-      </div>
-    </>
+    <Paper elevation={1} sx={{ p: 3, borderRadius: 3, mb: 4 }}>
+      <Stack direction="row" alignItems="center" spacing={2} mb={2}>
+        <Avatar sx={{ bgcolor: "#DCFCE7", color: "#16A34A" }}>
+          <ShowChartIcon />
+        </Avatar>
+        <Typography variant="h6" fontWeight="medium">
+          Your Healing Journey
+        </Typography>
+      </Stack>
+
+      <Grid container spacing={2}>
+        {metrics.map((metric, index) => (
+          <Grid item xs={6} key={index}>
+            <Box
+              sx={{
+                backgroundColor: "#F9FAFB",
+                borderRadius: 2,
+                p: 2,
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ color: "#0F766E", fontWeight: 500 }}
+              >
+                {metric.value}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{ color: "#6B7280", fontSize: "0.75rem" }}
+              >
+                {metric.label}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+
+      <Box mt={3} textAlign="center">
+        <Typography variant="body2" color="text.secondary">
+          Remember, healing isn't linear. Every step counts.
+        </Typography>
+      </Box>
+    </Paper>
   );
 };

@@ -1,4 +1,14 @@
 import { useState } from "react";
+import {
+  Box,
+  Button,
+  Typography,
+  Paper,
+  Avatar,
+  Stack,
+  Fade,
+} from "@mui/material";
+import WindPowerIcon from "@mui/icons-material/WindPower";
 
 export const Breathing = () => {
   const [showBreathingExercise, setShowBreathingExercise] = useState(false);
@@ -7,7 +17,6 @@ export const Breathing = () => {
   const startBreathingExercise = () => {
     setShowBreathingExercise(true);
 
-    // Start breathing cycle
     let phase = "inhale";
     const breathingInterval = setInterval(() => {
       if (phase === "inhale") {
@@ -22,60 +31,93 @@ export const Breathing = () => {
       }
     }, 4000);
 
-    // Cleanup after 1 minute
     setTimeout(() => {
       clearInterval(breathingInterval);
       setShowBreathingExercise(false);
     }, 60000);
   };
 
+  const getPhaseStyles = (phase) => {
+    switch (phase) {
+      case "inhale":
+        return {
+          backgroundColor: "#DBEAFE", // blue-100
+          transform: "scale(1.25)",
+        };
+      case "hold":
+        return {
+          backgroundColor: "#CCFBF1", // teal-100
+          transform: "scale(1.25)",
+        };
+      case "exhale":
+        return {
+          backgroundColor: "#E9D5FF", // purple-100
+          transform: "scale(1.0)",
+        };
+      default:
+        return {};
+    }
+  };
+
   return (
-    <>
-      {/* Breathing Exercise Widget */}
-      <div className="bg-white rounded-xl p-5 shadow-sm mb-6">
-        <div className="flex items-center mb-3">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-            <i className="fas fa-wind text-blue-600"></i>
-          </div>
-          <h3 className="font-medium">Breathing Exercise</h3>
-        </div>
-        {showBreathingExercise ? (
-          <div className="flex flex-col items-center py-4">
-            <div
-              className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-1000 ease-in-out ${
-                breathingPhase === "inhale"
-                  ? "bg-blue-100 scale-125"
-                  : breathingPhase === "hold"
-                  ? "bg-teal-100 scale-125"
-                  : "bg-purple-100 scale-100"
-              }`}
+    <Paper elevation={1} sx={{ p: 3, mb: 4, borderRadius: 3 }}>
+      <Stack direction="row" alignItems="center" spacing={2} mb={2}>
+        <Avatar sx={{ bgcolor: "#DBEAFE", color: "#2563EB" }}>
+          <WindPowerIcon />
+        </Avatar>
+        <Typography variant="h6">Breathing Exercise</Typography>
+      </Stack>
+
+      {showBreathingExercise ? (
+        <Box display="flex" flexDirection="column" alignItems="center" py={2}>
+          <Fade in timeout={1000}>
+            <Box
+              sx={{
+                width: 96,
+                height: 96,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 1s ease-in-out",
+                ...getPhaseStyles(breathingPhase),
+              }}
             >
-              <span className="text-gray-700">
+              <Typography variant="subtitle1" color="text.secondary">
                 {breathingPhase === "inhale"
                   ? "Inhale"
                   : breathingPhase === "hold"
                   ? "Hold"
                   : "Exhale"}
-              </span>
-            </div>
-            <p className="mt-4 text-sm text-gray-600">
-              Focus on your breath for 60 seconds
-            </p>
-          </div>
-        ) : (
-          <div className="text-center py-3">
-            <p className="text-gray-600 mb-3">
-              Take a moment to breathe and center yourself
-            </p>
-            <button
-              onClick={startBreathingExercise}
-              className="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg cursor-pointer !rounded-button"
-            >
-              Start Breathing Exercise
-            </button>
-          </div>
-        )}
-      </div>
-    </>
+              </Typography>
+            </Box>
+          </Fade>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+            Focus on your breath for 60 seconds
+          </Typography>
+        </Box>
+      ) : (
+        <Box textAlign="center" py={2}>
+          <Typography variant="body2" color="text.secondary" mb={2}>
+            Take a moment to breathe and center yourself
+          </Typography>
+          <Button
+            onClick={startBreathingExercise}
+            variant="contained"
+            sx={{
+              backgroundColor: "#DBEAFE",
+              color: "#2563EB",
+              textTransform: "none",
+              borderRadius: "0.75rem", // equivalent to rounded-button
+              "&:hover": {
+                backgroundColor: "#BFDBFE",
+              },
+            }}
+          >
+            Start Breathing Exercise
+          </Button>
+        </Box>
+      )}
+    </Paper>
   );
 };
