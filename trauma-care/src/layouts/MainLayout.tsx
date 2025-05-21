@@ -20,23 +20,24 @@ export const MainLayout: React.FC = () => {
     <Box
       component="main"
       sx={{
-        pt: 8, // equivalent to pt-16 (16 x 0.25rem = 4rem)
-        pb: 10, // equivalent to pb-20
-        px: 2, // equivalent to px-4
+        pt: 8,
+        pb: 10,
+        px: 2,
       }}
     >
       {/* Welcome Message */}
       <Box sx={{ mt: 5, mb: 3 }}>
-        <Typography
-          variant="h5"
-          sx={{ fontWeight: 500, color: "#115E59" }} // Tailwind's text-teal-800
-        >
+        <Typography variant="h5" sx={{ fontWeight: 500, color: "#115E59" }}>
           Welcome back, Sheddy
         </Typography>
         <Typography sx={{ color: "#4B5563", mt: 0.5 }}>
-          {" "}
-          {/* text-gray-600 */}
-          Tuesday, May 20, 2025 • Your journey continues
+          {new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}{" "}
+          • Your journey continues.
         </Typography>
       </Box>
 
@@ -46,8 +47,8 @@ export const MainLayout: React.FC = () => {
           fullWidth
           startIcon={<PhoneIcon />}
           sx={{
-            backgroundColor: "#E9D5FF", // Tailwind bg-purple-100
-            color: "#6B21A8", // text-purple-800
+            backgroundColor: "#E9D5FF",
+            color: "#6B21A8",
             py: 1.5,
             borderRadius: 2,
             boxShadow: theme.shadows[1],
