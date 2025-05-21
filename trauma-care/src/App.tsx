@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, CssBaseline } from "@mui/material";
-import { Mentor } from "./features/mentor/ProfessionalList";
 import { Header } from "./layouts/Header";
 import { MainLayout } from "./layouts/MainLayout";
 import { keyframes } from "@emotion/react";
@@ -31,7 +30,6 @@ const App: React.FC = () => {
       >
         <Header />
         <MainLayout />
-        <Mentor />
       </Box>
     </>
   );

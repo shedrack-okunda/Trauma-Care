@@ -1,28 +1,86 @@
-export const Journal = () => {
+import React from "react";
+import { Box, Typography, Paper, Button, Chip} from "@mui/material";
+import BookIcon from "@mui/icons-material/Book";
+import LockIcon from "@mui/icons-material/Lock";
+import AddIcon from "@mui/icons-material/Add";
+
+export const Journal: React.FC = () => {
   return (
-    <>
-      {/* Journal Quick Access */}
-      <div className="bg-white rounded-xl p-5 shadow-sm mb-6">
-        <div className="flex items-center mb-3">
-          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mr-2">
-            <i className="fas fa-book text-amber-600"></i>
-          </div>
-          <h3 className="font-medium">Journal</h3>
-          <div className="ml-auto">
-            <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-              <i className="fas fa-lock text-xs mr-1"></i>Private
-            </span>
-          </div>
-        </div>
-        <div className="text-center py-2">
-          <p className="text-gray-600 mb-3">
-            Record your thoughts and feelings in a safe space
-          </p>
-          <button className="bg-amber-100 text-amber-700 px-4 py-2 rounded-lg cursor-pointer !rounded-button">
-            <i className="fas fa-plus mr-2"></i>New Entry
-          </button>
-        </div>
-      </div>
-    </>
+    <Paper
+      elevation={1}
+      sx={{
+        backgroundColor: "#fff",
+        borderRadius: 2,
+        p: 2.5,
+        mb: 3,
+      }}
+    >
+      {/* Header */}
+      <Box display="flex" alignItems="center" mb={1.5}>
+        <Box
+          sx={{
+            width: 32,
+            height: 32,
+            borderRadius: "50%",
+            backgroundColor: "#FEF3C7", // Tailwind's amber-100
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mr: 1,
+          }}
+        >
+          <BookIcon sx={{ color: "#D97706" }} /> {/* amber-600 */}
+        </Box>
+
+        <Typography fontWeight={500}>Journal</Typography>
+
+        <Box ml="auto">
+          <Chip
+            icon={<LockIcon sx={{ fontSize: 16 }} />}
+            label="Private"
+            size="small"
+            sx={{
+              backgroundColor: "#D1FAE5", // green-100
+              color: "#047857", // green-700
+              fontSize: "0.75rem",
+              height: "auto",
+              px: 1,
+              py: 0.5,
+              borderRadius: "9999px",
+              ".MuiChip-icon": {
+                color: "#047857",
+                mr: 0.5,
+              },
+            }}
+          />
+        </Box>
+      </Box>
+
+      {/* Content */}
+      <Box textAlign="center" py={1.5}>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+          Record your thoughts and feelings in a safe space
+        </Typography>
+
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          sx={{
+            backgroundColor: "#FEF3C7", // amber-100
+            color: "#92400E", // amber-700
+            textTransform: "none",
+            borderRadius: 2,
+            px: 2,
+            py: 1,
+            fontSize: "0.875rem",
+            "&:hover": {
+              backgroundColor: "#FDE68A", // darker amber on hover
+            },
+          }}
+        >
+          New Entry
+        </Button>
+      </Box>
+    </Paper>
   );
 };

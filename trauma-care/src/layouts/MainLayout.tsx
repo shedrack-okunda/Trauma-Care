@@ -11,6 +11,7 @@ import { Breathing } from "../features/relaxation/BreathingExercise";
 import { FeaturedCategories } from "../features/resources/FeaturedResources";
 import { ResourceCategories } from "../features/resources/ResourceCategories";
 import { MoodSymptoms } from "../features/tracking/MoodSymptomsTracker";
+import { Mentor } from "../features/mentor/ProfessionalList";
 
 export const MainLayout: React.FC = () => {
   const theme = useTheme();
@@ -72,6 +73,7 @@ export const MainLayout: React.FC = () => {
         <Checkups />
         <Journal />
         <Accessibility />
+        <Mentor />
       </Stack>
     </Box>
   );

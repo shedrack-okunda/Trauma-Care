@@ -1,43 +1,115 @@
-export const Checkups = () => {
+import React from "react";
+import { Box, Typography, Paper, Button, Stack } from "@mui/material";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import AddIcon from "@mui/icons-material/Add";
+
+export const Checkups: React.FC = () => {
   return (
-    <>
-      {/* Upcoming Check-ups */}
-      <div className="bg-white rounded-xl p-5 shadow-sm mb-6">
-        <div className="flex items-center mb-4">
-          <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mr-2">
-            <i className="fas fa-calendar-check text-teal-600"></i>
-          </div>
-          <h3 className="font-medium">Upcoming Check-ups</h3>
-        </div>
+    <Paper
+      elevation={1}
+      sx={{
+        backgroundColor: "#fff",
+        borderRadius: 2,
+        p: 2.5,
+        mb: 3,
+      }}
+    >
+      {/* Header */}
+      <Box display="flex" alignItems="center" mb={2}>
+        <Box
+          sx={{
+            width: 32,
+            height: 32,
+            borderRadius: "50%",
+            backgroundColor: "#CCFBF1", // teal-100
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mr: 1,
+          }}
+        >
+          <CalendarTodayIcon sx={{ color: "#0F766E" }} /> {/* teal-600 */}
+        </Box>
+        <Typography fontWeight={500}>Upcoming Check-ups</Typography>
+      </Box>
 
-        <div className="space-y-3">
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <div>
-              <h4 className="font-medium">Therapy Session</h4>
-              <p className="text-sm text-gray-600">Dr. Sarah Johnson</p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm font-medium text-teal-700">Tomorrow</p>
-              <p className="text-sm text-gray-600">2:00 PM</p>
-            </div>
-          </div>
+      {/* Checkup Entries */}
+      <Stack spacing={1.5}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          p={1.5}
+          sx={{ backgroundColor: "#F9FAFB", borderRadius: 2 }} // gray-50
+        >
+          <Box>
+            <Typography fontWeight={500}>Therapy Session</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Dr. Sarah Johnson
+            </Typography>
+          </Box>
+          <Box textAlign="right">
+            <Typography
+              variant="body2"
+              fontWeight={500}
+              sx={{ color: "#0F766E" }} // teal-700
+            >
+              Tomorrow
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              2:00 PM
+            </Typography>
+          </Box>
+        </Box>
 
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <div>
-              <h4 className="font-medium">Group Support</h4>
-              <p className="text-sm text-gray-600">Trauma Recovery Group</p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm font-medium text-teal-700">May 25</p>
-              <p className="text-sm text-gray-600">6:30 PM</p>
-            </div>
-          </div>
-        </div>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          p={1.5}
+          sx={{ backgroundColor: "#F9FAFB", borderRadius: 2 }} // gray-50
+        >
+          <Box>
+            <Typography fontWeight={500}>Group Support</Typography>
+            <Typography variant="body2" color="text.secondary">
+              Trauma Recovery Group
+            </Typography>
+          </Box>
+          <Box textAlign="right">
+            <Typography
+              variant="body2"
+              fontWeight={500}
+              sx={{ color: "#0F766E" }} // teal-700
+            >
+              May 25
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              6:30 PM
+            </Typography>
+          </Box>
+        </Box>
+      </Stack>
 
-        <button className="w-full mt-4 bg-teal-50 text-teal-700 py-2 rounded-lg cursor-pointer !rounded-button">
-          <i className="fas fa-plus mr-2"></i>Schedule Check-up
-        </button>
-      </div>
-    </>
+      {/* Schedule Button */}
+      <Button
+        fullWidth
+        variant="contained"
+        startIcon={<AddIcon />}
+        sx={{
+          mt: 2,
+          backgroundColor: "#CCFBF1", // teal-50
+          color: "#0F766E", // teal-700
+          textTransform: "none",
+          borderRadius: 2,
+          py: 1.2,
+          fontSize: "0.875rem",
+          "&:hover": {
+            backgroundColor: "#99F6E4", // hover shade
+          },
+        }}
+      >
+        Schedule Check-up
+      </Button>
+    </Paper>
   );
 };
