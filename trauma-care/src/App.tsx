@@ -23,8 +23,8 @@ const App: React.FC = () => {
       <Box
         sx={{
           minHeight: "100vh",
-          backgroundColor: "#EFF6FF", 
-          color: "#374151",           
+          backgroundColor: "#EFF6FF",
+          color: "#374151",
           animation: `${fadeIn} 0.3s ease-out forwards`,
         }}
       >
