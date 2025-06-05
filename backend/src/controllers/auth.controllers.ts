@@ -23,7 +23,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     const hashedPassword = await hashPassword(password);
 
     // generate 6-digit OTP
-    const otp = generateOtp();
+    // const otp = generateOtp();
 
     // create new user
     const newUser = new User({
@@ -41,19 +41,19 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     await newUser.save();
 
     // create a new OTP entry
-    await Otp.create({
-      email: newUser.email,
-      otp,
-      expiresAt: new Date(Date.now() + 5 * 60 * 1000),
-    });
+    // await Otp.create({
+    //   email: newUser.email,
+    //   otp,
+    //   expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+    // });
 
     // send OTP to the user email
-    await sendEmail(
-      newUser.email,
-      "Verify your email",
-      `<p>Your OTP is: <strong>${otp}</strong></p>
-      <p>It will expire in 5 minutes.</p>`
-    );
+    // await sendEmail(
+    //   newUser.email,
+    //   "Verify your email",
+    //   `<p>Your OTP is: <strong>${otp}</strong></p>
+    //   <p>It will expire in 5 minutes.</p>`
+    // );
 
     res.status(201).json({
       message:
@@ -61,47 +61,6 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     });
   } catch (error) {
     console.error("Error occurred during signup:", error);
-    res.status(500).json({ message: "Internal server error.", error });
-  }
-};
-
-// login user
-export const login = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { email, password } = req.body;
-
-    // check if user exists
-    const existingUser = await User.findOne({ email });
-    if (!existingUser) {
-      res.status(401).json({
-        message: "Email provided does not exists, please sign up.",
-      });
-      return;
-    }
-
-    // ensure email is verified
-    if (!existingUser.isVerified) {
-      res.status(403).json({ message: "Please verify your email first." });
-      return;
-    }
-
-    // validate password
-    const isMatch = await bcrypt.compare(password, existingUser.password);
-    if (!isMatch) {
-      res.status(401).json({ message: "Incorrect password." });
-      return;
-    }
-
-    // generate JWT token
-    const token = generateToken(existingUser.id.toString());
-
-    res.status(200).json({
-      message: "Login successful.",
-      token,
-      user: sanitizeUser(existingUser),
-    });
-  } catch (error) {
-    console.error("Error occurred during login:", error);
     res.status(500).json({ message: "Internal server error.", error });
   }
 };
@@ -140,6 +99,47 @@ export const verifyOtp = async (req: Request, res: Response): Promise<void> => {
     res.status(200).json({ message: "Email verification successful." });
   } catch (error) {
     console.error("Error verifying OTP:", error);
+    res.status(500).json({ message: "Internal server error.", error });
+  }
+};
+
+// login user
+export const login = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { email, password } = req.body;
+
+    // check if user exists
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      res.status(401).json({
+        message: "Email provided does not exists, please sign up.",
+      });
+      return;
+    }
+
+    // ensure email is verified
+    // if (!existingUser.isVerified) {
+    //   res.status(403).json({ message: "Please verify your email first." });
+    //   return;
+    // }
+
+    // validate password
+    const isMatch = await bcrypt.compare(password, existingUser.password);
+    if (!isMatch) {
+      res.status(401).json({ message: "Incorrect password." });
+      return;
+    }
+
+    // generate JWT token
+    const token = generateToken(existingUser.id.toString());
+
+    res.status(200).json({
+      message: "Login successful.",
+      token,
+      user: sanitizeUser(existingUser),
+    });
+  } catch (error) {
+    console.error("Error occurred during login:", error);
     res.status(500).json({ message: "Internal server error.", error });
   }
 };
@@ -191,6 +191,7 @@ export const resendOtp = async (req: Request, res: Response): Promise<void> => {
 };
 
 // forgot password
+// send email with a link to change password when the link is clicked now prompts direct the user to a page to input new password then returned back to login
 export const forgotPassword = async (
   req: Request,
   res: Response

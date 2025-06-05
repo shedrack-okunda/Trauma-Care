@@ -14,7 +14,7 @@ export const sendEmail = async (
   });
 
   await transporter.sendMail({
-    from: `'Trauma Care' <${process.env.EMAIL}>`,
+    from: `'TraumaCare' <${process.env.EMAIL}>`,
     to,
     subject,
     html,
