@@ -1,39 +1,24 @@
 import React from "react";
-import { Box, CssBaseline } from "@mui/material";
-import { Header } from "./layouts/Header";
-import { MainLayout } from "./layouts/MainLayout";
-import { keyframes } from "@emotion/react";
-import TabBar from "./layouts/TabBar";
-
-// Custom keyframe animation using Emotion (used by MUI)
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
+import Login from "./components/auth/Login";
+import SignupForm from "./components/auth/Signup";
+import Home from "./pages/Home";
 
 const App: React.FC = () => {
   return (
-    <>
-      <CssBaseline />
-      <Box
-        sx={{
-          minHeight: "100vh",
-          backgroundColor: "#EFF6FF",
-          color: "#374151",
-          animation: `${fadeIn} 0.3s ease-out forwards`,
-        }}
-      >
-        <Header />
-        <MainLayout />
-        <TabBar />
-      </Box>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
 };
 

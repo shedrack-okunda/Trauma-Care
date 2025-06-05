@@ -6,7 +6,7 @@ import {
   VideoLibrary as VideoIcon,
 } from "@mui/icons-material";
 import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 const TabBar: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("home");

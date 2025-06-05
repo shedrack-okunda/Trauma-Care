@@ -1,168 +1,80 @@
 // components/SignupForm.tsx
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { TextField, Button, Typography, Box } from "@mui/material";
 
-interface Props {
-  registerForm: {
-    name: string;
-    username: string;
-    email: string;
-    phone: string;
-    age: number;
-    gender: "male" | "female";
-    password: string;
-    confirmPassword: string;
+const SignupForm: React.FC = () => {
+  const [form, setForm] = useState({
+    name: "",
+    username: "",
+    email: "",
+    phone: "",
+    age: "",
+    gender: "male",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  setRegisterForm: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-      username: string;
-      email: string;
-      phone: string;
-      age: number;
-      gender: "male" | "female";
-      password: string;
-      confirmPassword: string;
-    }>
-  >;
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Registering with:", form);
 
-  onRegister: (e: React.FormEvent) => void;
-  switchToLogin: () => void;
-}
+    // TODO: API call
+    // On success:
+    navigate("/login");
+  };
 
-const SignupForm: React.FC<Props> = ({
-  registerForm,
-  setRegisterForm,
-  onRegister,
-  switchToLogin,
-}) => {
   return (
-    <form onSubmit={onRegister}>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Name
-        </label>
-        <input
-          type="text"
-          value={registerForm.name}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, name: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Enter your name"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Username
-        </label>
-        <input
-          type="text"
-          value={registerForm.username}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, username: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Enter your username"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Email
-        </label>
-        <input
-          type="email"
-          value={registerForm.email}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, email: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Enter your email"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Phone
-        </label>
-        <input
-          type="text"
-          value={registerForm.phone}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, phone: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Enter your phone number"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Age
-        </label>
-        <input
-          type="number"
-          value={registerForm.age}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, age: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Enter your age"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Password
-        </label>
-        <input
-          type="password"
-          value={registerForm.password}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, password: e.target.value })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Create a password"
-        />
-      </div>
-
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Confirm Password
-        </label>
-        <input
-          type="password"
-          value={registerForm.confirmPassword}
-          onChange={(e) =>
-            setRegisterForm({
-              ...registerForm,
-              confirmPassword: e.target.value,
-            })
-          }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-          placeholder="Confirm your password"
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700"
-      >
+    <Box
+      component="form"
+      onSubmit={handleRegister}
+      sx={{ maxWidth: 500, mx: "auto", mt: 8 }}
+    >
+      <Typography variant="h5" mb={2}>
         Sign Up
-      </button>
+      </Typography>
 
-      <p className="text-center mt-4 text-sm">
+      {[
+        "name",
+        "username",
+        "email",
+        "phone",
+        "age",
+        "password",
+        "confirmPassword",
+      ].map((field) => (
+        <TextField
+          key={field}
+          fullWidth
+          label={field[0].toUpperCase() + field.slice(1)}
+          name={field}
+          type={field.toLowerCase().includes("password") ? "password" : "text"}
+          margin="normal"
+          value={form[field as keyof typeof form]}
+          onChange={handleChange}
+        />
+      ))}
+
+      <Button
+        fullWidth
+        type="submit"
+        variant="contained"
+        color="primary"
+        sx={{ mt: 2 }}
+      >
+        Register
+      </Button>
+      <Typography mt={2}>
         Already have an account?{" "}
-        <button
-          type="button"
-          onClick={switchToLogin}
-          className="text-teal-600 hover:underline"
-        >
-          Log In
-        </button>
-      </p>
-    </form>
+        <Button onClick={() => navigate("/login")}>Login</Button>
+      </Typography>
+    </Box>
   );
 };
 
