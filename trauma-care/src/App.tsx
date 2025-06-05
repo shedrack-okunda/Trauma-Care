@@ -3,6 +3,7 @@ import { Box, CssBaseline } from "@mui/material";
 import { Header } from "./layouts/Header";
 import { MainLayout } from "./layouts/MainLayout";
 import { keyframes } from "@emotion/react";
+import TabBar from "./layouts/TabBar";
 
 // Custom keyframe animation using Emotion (used by MUI)
 const fadeIn = keyframes`
@@ -30,6 +31,7 @@ const App: React.FC = () => {
       >
         <Header />
         <MainLayout />
+        <TabBar />
       </Box>
     </>
   );

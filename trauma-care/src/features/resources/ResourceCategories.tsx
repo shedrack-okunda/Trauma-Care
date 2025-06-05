@@ -1,20 +1,5 @@
-import React, { ChangeEvent, MouseEvent, useState } from "react";
-import {
-  Box,
-  Grid,
-  Paper,
-  Avatar,
-  Typography,
-  BottomNavigation,
-  BottomNavigationAction,
-} from "@mui/material";
-import {
-  Home as HomeIcon,
-  Build as ToolsIcon,
-  Article as ArticleIcon,
-  SelfImprovement as MeditationIcon,
-  VideoLibrary as VideoIcon,
-} from "@mui/icons-material";
+import React, { MouseEvent, useState } from "react";
+import { Box, Grid, Paper, Avatar, Typography } from "@mui/material";
 
 interface Resources {
   key: string;
@@ -26,14 +11,7 @@ interface Resources {
 export const ResourceCategories: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState("home");
 
-  const handleTabChange = (_: ChangeEvent<{}>, newValue: string) => {
-    setSelectedTab(newValue);
-  };
-
-  const handlePaperClick = (
-    _: MouseEvent<HTMLElement>,
-    newValue: string
-  ) => {
+  const handlePaperClick = (_: MouseEvent<HTMLElement>, newValue: string) => {
     setSelectedTab(newValue);
   };
 
@@ -124,50 +102,6 @@ export const ResourceCategories: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-      </Box>
-
-      {/* Bottom Tab Bar */}
-      <Box
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          borderTop: "1px solid #e0e0e0",
-          zIndex: 1300,
-        }}
-      >
-        <BottomNavigation
-          value={selectedTab}
-          onChange={handleTabChange}
-          sx={{ bgcolor: "#fff", px: 1 }}
-        >
-          <BottomNavigationAction
-            label="Home"
-            value="home"
-            icon={<HomeIcon />}
-          />
-          <BottomNavigationAction
-            label="Tools"
-            value="tools"
-            icon={<ToolsIcon />}
-          />
-          <BottomNavigationAction
-            label="Articles"
-            value="articles"
-            icon={<ArticleIcon />}
-          />
-          <BottomNavigationAction
-            label="Meditation"
-            value="meditations"
-            icon={<MeditationIcon />}
-          />
-          <BottomNavigationAction
-            label="Videos"
-            value="videos"
-            icon={<VideoIcon />}
-          />
-        </BottomNavigation>
       </Box>
     </>
   );

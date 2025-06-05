@@ -1,22 +1,27 @@
 // components/Logout.tsx
 import React from "react";
+import { Button } from "@mui/material";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-interface Props {
-  onLogout: () => void;
-  userName?: string;
-}
-
-const Logout: React.FC<Props> = ({ onLogout, userName }) => {
+const Logout: React.FC = () => {
   return (
-    <div className="p-6 text-center">
-      <h2 className="text-xl font-bold">Welcome, {userName}</h2>
-      <button
-        onClick={onLogout}
-        className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-      >
-        Logout
-      </button>
-    </div>
+    <Button
+      variant="contained"
+      sx={{
+        backgroundColor: "#FEE2E2",
+        color: "#B91C1C",
+        fontWeight: 500,
+        fontSize: "0.975rem",
+        borderRadius: 9999,
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#FCA5A5",
+        },
+      }}
+      endIcon={<ExitToAppIcon />}
+    >
+      Logout
+    </Button>
   );
 };
 
